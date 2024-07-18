@@ -1,67 +1,44 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import config from "../config.json";
+
+import { Cloudinary } from "@cloudinary/url-gen";
+
+const cld = new Cloudinary({
+  cloud: {
+    cloudName: import.meta.env.CLOUDINARY_CLOUD_NAME,
+  },
+});
+
+const heroVideo = cld.video("dirtee deeds/hero");
+const heroVideoURL = heroVideo.toURL();
 ---
 
-<Layout title="Welcome to Astro." />
-
-<style>
-  main {
-    margin: auto;
-    padding: 1rem;
-    width: 800px;
-    max-width: calc(100% - 2rem);
-    color: white;
-    font-size: 20px;
-    line-height: 1.6;
-  }
-  .astro-a {
-    position: absolute;
-    top: -32px;
-    left: 50%;
-    transform: translatex(-50%);
-    width: 220px;
-    height: auto;
-    z-index: -1;
-  }
-  h1 {
-    font-size: 4rem;
-    font-weight: 700;
-    line-height: 1;
-    text-align: center;
-    margin-bottom: 1em;
-  }
-  .text-gradient {
-    background-image: var(--accent-gradient);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 400%;
-    background-position: 0%;
-  }
-  .instructions {
-    margin-bottom: 2rem;
-    border: 1px solid rgba(var(--accent-light), 25%);
-    background: linear-gradient(
-      rgba(var(--accent-dark), 66%),
-      rgba(var(--accent-dark), 33%)
-    );
-    padding: 1.5rem;
-    border-radius: 8px;
-  }
-  .instructions code {
-    font-size: 0.8em;
-    font-weight: bold;
-    background: rgba(var(--accent-light), 12%);
-    color: rgb(var(--accent-light));
-    border-radius: 4px;
-    padding: 0.3em 0.4em;
-  }
-  .instructions strong {
-    color: rgb(var(--accent-light));
-  }
-  .link-card-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
-    gap: 2rem;
-    padding: 0;
-  }
-</style>
+<Layout title={config.businessName}>
+  <section class="h-screen flex">
+    <video
+      autoplay
+      loop
+      muted
+      playsinline
+      class="absolute top-0 left-0 w-full h-full object-cover -z-10"
+    >
+      <source src={heroVideoURL} type="video/mp4" />
+    </video>
+    <div class="max-w-screen-xl mx-auto flex w-full px-4">
+      <div class="flex flex-col justify-center w-full max-w-2xl gap-8">
+        <h1 class="text-6xl max-md:text-4xl text-primary">
+          Providing year-round service to the Wairarapa region for over 20 years
+        </h1>
+        <h2 class="font-light text-white">
+          Precision diggers, dependable trucks, complete earthwork services
+        </h2>
+        <a
+          href="#contact"
+          class="btn btn-outline rounded-full btn-lg btn-primary w-fit"
+          >Contact Us Today</a
+        >
+      </div>
+    </div>
+  </section>
+</Layout>
