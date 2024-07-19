@@ -1,3 +1,28 @@
 {
-  "businessName": "Dirt'ee Deeds"
+  "businessName": "Dirt'ee Deeds",
+  "pages": [
+    {
+      "name": "Home",
+      "url": "/"
+    },
+    {
+      "name": "Services",
+      "url": "/services"
+    }
+  ],
+  "socials": [],
+  "support": [
+    {
+      "name": "021 083 62653",
+      "url": "tel:+642108362653"
+    },
+    {
+      "name": "lachie@dirteedeeds.co.nz",
+      "url": "mailto:lachie@dirteedeeds.co.nz"
+    },
+    {
+      "name": "admin@dirteedeeds.co.nz",
+      "url": "mailto:admin@dirteedeeds.co.nz"
+    }
+  ]
 }
