@@ -9,8 +9,8 @@ export default {
       {
         cmyk: {
           ...require("daisyui/src/theming/themes")["cmyk"],
-          primary: "#3E2723",
-          secondary: "#D7CCC8",
+          primary: "#6D4C41",
+          secondary: "#EFEBE9",
         },
       },
     ],
