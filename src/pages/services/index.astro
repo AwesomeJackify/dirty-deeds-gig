@@ -30,7 +30,7 @@ const services = await getCollection("services");
               </div>
               <a
                 href={`/services/${service.slug}`}
-                class={`btn btn-lg btn-primary w-fit mt-auto max-md:self-end ${
+                class={`btn btn-lg btn-primary w-fit max-md:hidden mt-auto ${
                   index % 2 ? "" : "md:self-end"
                 }`}
               >
@@ -44,6 +44,14 @@ const services = await getCollection("services");
               alt={service.data.name}
               class="object-cover"
             />
+            <a
+              href={`/services/${service.slug}`}
+              class={`btn btn-lg btn-primary w-full md:hidden mt-auto ${
+                index % 2 ? "" : "md:self-end"
+              }`}
+            >
+              Check it out
+            </a>
           </div>
         ))
       }
