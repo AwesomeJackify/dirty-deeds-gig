@@ -1,30 +1,37 @@
-import React, { useEffect, useState } from "react";
-import { useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import gsap from "gsap";
-import { useGSAP } from "@gsap/react";
-
 import config from "../config.json";
 
 const Nav = () => {
   const [t1, setT1] = useState<gsap.core.Timeline>();
   const [toggleMobileNav, setToggleMobileNav] = useState(false);
 
-  useGSAP(() => {
+  const navWrapperRef = useRef(null);
+  const mobileNavItemsRef = useRef<Array<HTMLAnchorElement | null>>([]);
+  const mobileContactBtnRef = useRef(null);
+
+  useEffect(() => {
     const timeline = gsap.timeline({ paused: true });
     timeline
-      .to("#navWrapper", {
-        bottom: "16px",
+      .to("#mobileNavItemsWrapper", {
+        paddingTop: "48px",
+        height: "80dvh",
+      })
+      .to(navWrapperRef.current, {
         ease: "power2.out",
         duration: 0.4,
       })
-      .to(".mobileNavItem", {
-        display: "block",
-        opacity: 1,
-        yPercent: -32,
-        stagger: 0.3,
-      })
       .to(
-        "#mobileContactBtn",
+        mobileNavItemsRef.current,
+        {
+          opacity: 1,
+          yPercent: -32,
+          stagger: 0.3,
+        },
+        0
+      )
+      .to(
+        mobileContactBtnRef.current,
         {
           display: "inline-flex",
           opacity: 1,
@@ -44,7 +51,7 @@ const Nav = () => {
   return (
     <div
       className="fixed top-4 left-4 right-4 rounded-2xl px-8 max-md:px-4 py-4 mx-4 z-50 bg-secondary"
-      id="navWrapper"
+      ref={navWrapperRef}
     >
       <nav className="grid grid-cols-3 place-items-center max-md:hidden">
         <div className="flex w-full justify-start gap-4">
@@ -78,12 +85,16 @@ const Nav = () => {
         </button>
       </nav>
       <div className="flex flex-col ml-4 h-full gap-1 relative">
-        <div className="absolute top-16 flex flex-col gap-2">
-          {config.pages.map((page: any) => (
+        <div
+          id="mobileNavItemsWrapper"
+          className="top-16 flex flex-col gap-2 h-0"
+        >
+          {config.pages.map((page, index) => (
             <a
               key={page.name}
               href={page.url}
-              className="mobileNavItem text-4xl hidden opacity-0"
+              className="opacity-0 mobileNavItem text-4xl"
+              ref={(el) => (mobileNavItemsRef.current[index] = el)}
             >
               {page.name}
             </a>
@@ -93,6 +104,7 @@ const Nav = () => {
           id="mobileContactBtn"
           href="/#contact"
           className="btn opacity-0 hidden absolute bottom-16 btn-primary w-fit"
+          ref={mobileContactBtnRef}
         >
           Contact us today
         </a>
