@@ -5,7 +5,15 @@ export default {
     extend: {},
   },
   daisyui: {
-    themes: ["cmyk"],
+    themes: [
+      {
+        cmyk: {
+          ...require("daisyui/src/theming/themes")["cmyk"],
+          primary: "#3E2723",
+          secondary: "#D7CCC8",
+        },
+      },
+    ],
   },
   plugins: [require("daisyui")],
 };

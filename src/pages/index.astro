@@ -20,10 +20,40 @@ const services = await getCollection("services");
 const serviceImages = import.meta.glob<{ default: ImageMetadata }>(
   "/src/assets/images/services/**/*.{jpeg,jpg,png,gif}"
 );
+
+const whyChooseUs = [
+  {
+    name: "Quality Work",
+    description:
+      "Dirt'ee Deeds takes pride in all of our work, big or small no matter the size of the project we will always complete our work to the highest quality possible and be able to look at a finished project and know no short cuts were taken.",
+  },
+  {
+    name: "Amazing Client Experience",
+    description:
+      "At Dirt'ee Deeds we always aim for clients to have a seamless and hassle free experience, we do achieve this by addressing all and any concerns and being completely transparent about all processes being executed.",
+  },
+  {
+    name: "Work Place Positivity",
+    description:
+      "Dirt'ee Deeds strives for all employees to enjoy and be positive about the work they are tasked with therefore being passionate about completing work to high standards.",
+  },
+  {
+    name: "Value For Money",
+    description:
+      "Dirt'ee Deeds approaches every project with the aim to keep cost as low as possible for the client while maintaining a quality service.",
+  },
+];
+
+const fields = [
+  { name: "firstName", text: "First Name" },
+  { name: "lastName", text: "Last Name" },
+  { name: "email", text: "Email" },
+  { name: "message", text: "Message" },
+];
 ---
 
 <Layout title={config.businessName}>
-  <div class="flex flex-col gap-16 max-md:gap-8">
+  <div class="flex flex-col gap-16 max-md:gap-8 pb-16">
     <section class="min-h-screen flex relative">
       <video
         autoplay
@@ -35,17 +65,17 @@ const serviceImages = import.meta.glob<{ default: ImageMetadata }>(
         <source src={heroVideoURL} type="video/mp4" />
       </video>
       <div class="max-w-screen-xl mx-auto flex w-full px-4">
-        <div class="flex flex-col justify-center w-full max-w-2xl gap-8">
-          <h1 class="text-6xl max-md:text-4xl text-primary pt-32">
+        <div
+          class="flex flex-col justify-center text-white w-full max-w-2xl gap-8"
+        >
+          <h1 class="text-6xl max-md:text-4xl pt-32 font-bold">
             Providing year-round service to the Wairarapa region for over 20
             years
           </h1>
-          <h2 class="font-light text-white">
+          <h2 class="text-2xl font-light text-white">
             Precision diggers, dependable trucks, complete earthwork services
           </h2>
-          <a
-            href="#contact"
-            class="btn btn-outline rounded-2xl btn-lg btn-primary w-fit"
+          <a href="#contact" class="btn rounded-2xl btn-lg btn-primary w-fit"
             >Contact Us Today</a
           >
         </div>
@@ -179,6 +209,93 @@ const serviceImages = import.meta.glob<{ default: ImageMetadata }>(
             ))
           }
         </div>
+      </div>
+    </section>
+    <section class="flex flex-col gap-16 max-w-screen-xl mx-auto">
+      <h1 class="text-6xl text-center">Why Choose Us</h1>
+      <div class="grid grid-cols-2 gap-16 max-md:gap-8">
+        <div class="max-w-2xl mx-auto flex flex-col gap-4">
+          {
+            whyChooseUs.map((item: any, index: number) => (
+              <div class="collapse collapse-arrow bg-base-200">
+                <input
+                  type="radio"
+                  name="my-accordion-1"
+                  checked={index == 0 && "true"}
+                />
+                <div class="collapse-title text-xl font-medium">
+                  {item.name}
+                </div>
+                <div class="collapse-content">
+                  <p>{item.description}</p>
+                </div>
+              </div>
+            ))
+          }
+        </div>
+        <Image
+          src="https://acropolis-wp-content-uploads.s3.us-west-1.amazonaws.com/Parts-of-an-Excavator-Hero-image.webp"
+          alt="image"
+          height={800}
+          width={800}
+          class="w-full h-full object-cover"
+        />
+      </div>
+    </section>
+    <section id="contact">
+      <div
+        class="max-w-screen-lg mx-auto flex flex-col items-center gap-16 max-md:gap-8 px-2 py-16"
+      >
+        <div class="flex flex-col items-center gap-4 font-koulen">
+          <h1 class="text-8xl max-md:text-4xl font-extrabold text-center">
+            Got a plan?
+          </h1>
+          <h2 class="text-7xl font-extrabold text-center max-md:text-5xl">
+            We'll get the diggers ready
+          </h2>
+        </div>
+        <p class="text-2xl font-light">Contact us today</p>
+        <form
+          name="contact"
+          method="POST"
+          data-netlify="true"
+          class="py-6 w-full flex flex-col gap-2 text-4xl max-md:text-2xl font-light"
+        >
+          <div
+            class="rounded-2xl border-2 border-primary pt-8 pb-16 px-16 max-md:px-4"
+          >
+            {
+              fields.map((field) => (
+                <div class="flex gap-16 items-center border-b-2 border-black py-2">
+                  <label
+                    for={field.name}
+                    class="whitespace-nowrap min-w-32 max-md:min-w-12"
+                  >
+                    {field.text}
+                  </label>
+                  {field.name === "message" ? (
+                    <textarea
+                      id={field.name}
+                      name={field.name}
+                      class="bg-transparent form-input px-4 h-96 py-3 w-full rounded focus:outline-none font-extralight"
+                    />
+                  ) : (
+                    <input
+                      autocomplete="on"
+                      type="text"
+                      id={field.name}
+                      name={field.name}
+                      class="bg-transparent form-input px-4 py-3 w-full rounded focus:outline-none font-extralight"
+                    />
+                  )}
+                </div>
+              ))
+            }
+          </div>
+          <div class="flex text-[#e4ab97] w-full justify-center my-6">
+            <input type="submit" value="Submit" class="btn btn-primary" />
+          </div>
+        </form>
       </div>
     </section>
   </div>

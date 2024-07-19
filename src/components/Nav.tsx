@@ -54,7 +54,10 @@ const Nav = () => {
             </a>
           ))}
         </div>
-        <a href="/" className="text-2xl text-primary font-extrabold">
+        <a
+          href="/"
+          className="btn btn-ghost text-4xl text-primary font-extrabold"
+        >
           {config.businessName}
         </a>
         <div className="flex justify-end w-full">
