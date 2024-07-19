@@ -53,7 +53,7 @@ const fields = [
 ---
 
 <Layout title={config.businessName}>
-  <div class="flex flex-col gap-16 max-md:gap-8 pb-16">
+  <div class="flex flex-col gap-16 pb-16">
     <section class="min-h-screen flex relative">
       <video
         autoplay
@@ -187,33 +187,39 @@ const fields = [
     <section>
       <div class="max-w-screen-xl mx-auto gap-16 flex flex-col px-4">
         <h1 class="text-6xl text-center">Our Services</h1>
-        <div class="grid grid-cols-3 max-md:grid-cols-1 gap-8">
-          {
-            services.slice(3).map((service: any) => (
-              <div class="flex flex-col gap-4">
-                <Image
-                  src={serviceImages[
-                    "/src/assets/images/services/" + service.data.featuredImage
-                  ]()}
-                  alt={service.data.name}
-                  class="object-cover"
-                />
-                <p class="text-ellipsis">{service.data.description}</p>
-                <a
-                  href={`/services/${service.slug}`}
-                  class="btn btn-primary mt-auto w-fit max-md:w-full self-end"
-                >
-                  Check it out
-                </a>
-              </div>
-            ))
-          }
+        <div class="flex flex-col gap-16 max-md:gap-8">
+          <div class="grid grid-cols-3 max-md:grid-cols-1 gap-8">
+            {
+              services.slice(3).map((service: any) => (
+                <div class="flex flex-col gap-4">
+                  <Image
+                    src={serviceImages[
+                      "/src/assets/images/services/" +
+                        service.data.featuredImage
+                    ]()}
+                    alt={service.data.name}
+                    class="object-cover"
+                  />
+                  <p class="text-ellipsis">{service.data.description}</p>
+                  <a
+                    href={`/services/${service.slug}`}
+                    class="btn btn-primary mt-auto w-fit max-md:w-full self-end"
+                  >
+                    Check it out
+                  </a>
+                </div>
+              ))
+            }
+          </div>
+          <a href="/services" class="link link-primary text-center text-2xl"
+            >See all our services</a
+          >
         </div>
       </div>
     </section>
-    <section class="flex flex-col gap-16 max-w-screen-xl mx-auto">
+    <section class="flex flex-col gap-16 max-w-screen-xl mx-auto px-4">
       <h1 class="text-6xl text-center">Why Choose Us</h1>
-      <div class="grid grid-cols-2 gap-16 max-md:gap-8">
+      <div class="grid grid-cols-2 max-md:grid-cols-1 gap-16 max-md:gap-8">
         <div class="max-w-2xl mx-auto flex flex-col gap-4">
           {
             whyChooseUs.map((item: any, index: number) => (
@@ -244,9 +250,9 @@ const fields = [
     </section>
     <section id="contact">
       <div
-        class="max-w-screen-lg mx-auto flex flex-col items-center gap-16 max-md:gap-8 px-2 py-16"
+        class="max-w-screen-lg mx-auto flex flex-col items-center gap-16 max-md:gap-8 px-2"
       >
-        <div class="flex flex-col items-center gap-4 font-koulen">
+        <div class="flex flex-col items-center gap-4">
           <h1 class="text-8xl max-md:text-4xl font-extrabold text-center">
             Got a plan?
           </h1>
