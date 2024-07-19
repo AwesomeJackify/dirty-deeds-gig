@@ -55,7 +55,7 @@ const fields = [
 <Layout title={config.businessName}>
   <div class="flex flex-col gap-16 pb-16">
     <section class="min-h-screen flex relative">
-      <!-- <video
+      <video
         autoplay
         loop
         muted
@@ -63,7 +63,7 @@ const fields = [
         class="absolute top-0 left-0 w-full h-full object-cover -z-10"
       >
         <source src={heroVideoURL} type="video/mp4" />
-      </video> -->
+      </video>
       <div class="max-w-screen-xl mx-auto flex w-full px-4">
         <div
           class="flex flex-col justify-center text-white w-full max-w-2xl gap-8"
@@ -192,6 +192,9 @@ const fields = [
             {
               services.slice(3).map((service: any) => (
                 <div class="flex flex-col gap-4">
+                  <h1 class="text-2xl font-medium overflow-hidden whitespace-nowrap text-ellipsis">
+                    {service.data.name}
+                  </h1>
                   <Image
                     src={serviceImages[
                       "/src/assets/images/services/" +
