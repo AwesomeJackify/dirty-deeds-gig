@@ -14,8 +14,8 @@ const Nav = () => {
   ];
 
   return (
-    <nav className="grid grid-cols-3 place-items-center bg-secondary fixed top-4 left-4 right-4 rounded-full px-8 py-4">
-      <div className="flex w-full justify-start gap-2">
+    <nav className="grid grid-cols-3 place-items-center bg-secondary fixed top-4 left-4 right-4 rounded-full px-8 py-4 mx-4 z-50">
+      <div className="flex w-full justify-start gap-4">
         {pages.map((page) => (
           <a href={page.url} key={page.url} className="link link-hover">
             {page.name}

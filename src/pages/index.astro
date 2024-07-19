@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import config from "../config.json";
+import { Icon } from "astro-icon/components";
 
 import { Cloudinary } from "@cloudinary/url-gen";
 
@@ -15,7 +16,7 @@ const heroVideoURL = heroVideo.toURL();
 ---
 
 <Layout title={config.businessName}>
-  <section class="h-screen flex">
+  <section class="min-h-screen flex relative">
     <video
       autoplay
       loop
@@ -27,7 +28,7 @@ const heroVideoURL = heroVideo.toURL();
     </video>
     <div class="max-w-screen-xl mx-auto flex w-full px-4">
       <div class="flex flex-col justify-center w-full max-w-2xl gap-8">
-        <h1 class="text-6xl max-md:text-4xl text-primary">
+        <h1 class="text-6xl max-md:text-4xl text-primary pt-32">
           Providing year-round service to the Wairarapa region for over 20 years
         </h1>
         <h2 class="font-light text-white">
@@ -41,4 +42,105 @@ const heroVideoURL = heroVideo.toURL();
       </div>
     </div>
   </section>
+  <section>
+    <div
+      class="max-w-screen-xl mx-auto grid grid-cols-2 max-md:grid-cols-1 place-items-center gap-16 max-md:gap-8 py-16 px-4"
+    >
+      <h1 class="text-7xl max-md:text-4xl font-bold text-primary">
+        We move the earth to bring your projects to life, efficiently and
+        reliably.
+      </h1>
+      <div class="flex flex-col gap-8">
+        <div class="flex flex-col gap-4">
+          <h1 class="text-4xl font-bold text-primary">Mission</h1>
+          <p class="font-light text-sm">
+            At Dirt'ee Deeds, our mission is to continuously upskill our team to
+            enhance the client experience throughout every stage of their
+            project. We are dedicated to staying at the forefront of industry
+            advancements, embracing innovative techniques, and implementing best
+            practices to deliver superior results. Our commitment to
+            professional development ensures that we not only meet but exceed
+            client expectations, fostering a seamless and rewarding journey from
+            start to finish. We believe in building lasting relationships
+            through exceptional service, unwavering integrity, and a relentless
+            pursuit of excellence in all that we do.
+          </p>
+        </div>
+        <div class="flex flex-col gap-4">
+          <h1 class="text-4xl font-bold text-primary">Purpose</h1>
+          <p class="font-light text-sm">
+            Dirt'ee Deeds is dedicated to meeting and exceeding the needs and
+            ideas of our customers in a timely and hassle-free manner. Our goal
+            is to provide exceptional service that is responsive, efficient, and
+            tailored to each client's unique requirements. We are committed to
+            ensuring a smooth and stress-free experience by actively listening
+            to our customers, understanding their visions, and delivering
+            reliable, high-quality solutions. Our purpose is to build trust and
+            satisfaction through our unwavering dedication to customer service,
+            attention to detail, and consistent communication throughout every
+            project. At Dirt'ee Deeds, your needs are our priority, and your
+            ideas are our blueprint for success.
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="flex flex-col items-center gap-1">
+      <div class="carousel">
+        <div class="carousel-item">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp"
+            alt="Burger"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp"
+            alt="Burger"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp"
+            alt="Burger"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1494253109108-2e30c049369b.webp"
+            alt="Burger"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp"
+            alt="Burger"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1559181567-c3190ca9959b.webp"
+            alt="Burger"
+          />
+        </div>
+        <div class="carousel-item">
+          <img
+            src="https://img.daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.webp"
+            alt="Burger"
+          />
+        </div>
+      </div>
+      <div class="flex items-center justify-center gap-2 max-md:hidden text-xs">
+        <p class="italic font-light">scroll using</p>
+        <kbd class="kbd kbd-xs">Shift</kbd>
+        <p>+</p>
+        <Icon name="mdi:mouse" class="text-xs" />
+        <p class="italic font-light">or</p>
+        <Icon name="mdi:trackpad" class="text-xs" />
+      </div>
+      <p class="md:hidden italic font-light text-xs">
+        scroll right to see more
+      </p>
+    </div>
+  </section>
+  <section></section>
 </Layout>
