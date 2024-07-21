@@ -6,8 +6,10 @@ import { Icon } from "astro-icon/components";
 import { getCollection } from "astro:content";
 
 const serviceImages = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/services/**/*.{jpeg,jpg,png,gif}"
+  "/src/assets/images/services/**/*.{jpeg,jpg,png,gif,webp}"
 );
+
+console.log(serviceImages);
 
 const services = await getCollection("services");
 ---

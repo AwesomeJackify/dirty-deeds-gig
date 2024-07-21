@@ -18,7 +18,7 @@ export function getStaticPaths() {
 const { service } = Astro.params;
 
 const serviceImages = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/services/**/*.{jpeg,jpg,png,gif}"
+  "/src/assets/images/services/**/*.{jpeg,jpg,png,gif,webp}"
 );
 
 const currentServiceEntry = await getEntry("services", service);

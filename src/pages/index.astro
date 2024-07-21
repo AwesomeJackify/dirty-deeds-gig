@@ -46,7 +46,7 @@ const heroVideoURL = heroVideo.toURL();
 
 const services = await getCollection("services");
 const serviceImages = import.meta.glob<{ default: ImageMetadata }>(
-  "/src/assets/images/services/**/*.{jpeg,jpg,png,gif}"
+  "/src/assets/images/services/**/*.{jpeg,jpg,png,gif,webp}"
 );
 
 const whyChooseUs = [
@@ -198,9 +198,13 @@ const fields = [
                         service.data.featuredImage
                     ]()}
                     alt={service.data.name}
-                    class="object-cover"
+                    class="object-cover w-full aspect-[1/0.7]"
                   />
-                  <p class="text-ellipsis">{service.data.description}</p>
+                  <p class="text-ellipsis">
+                    {service.data.description.length > 250
+                      ? `${service.data.description.slice(0, 250)}...`
+                      : service.data.description}
+                  </p>
                   <a
                     href={`/services/${service.slug}`}
                     class="btn btn-primary mt-auto w-fit max-md:w-full self-end"
