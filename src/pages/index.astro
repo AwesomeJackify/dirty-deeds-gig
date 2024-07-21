@@ -7,6 +7,34 @@ import { Image } from "astro:assets";
 
 import { Cloudinary } from "@cloudinary/url-gen";
 
+import galleryImg1 from "../assets/images/gallery/gallery1.jpg";
+import galleryImg2 from "../assets/images/gallery/gallery2.jpg";
+import galleryImg3 from "../assets/images/gallery/gallery3.jpg";
+import galleryImg4 from "../assets/images/gallery/gallery4.jpg";
+import galleryImg5 from "../assets/images/gallery/gallery5.jpg";
+import galleryImg6 from "../assets/images/gallery/gallery6.jpg";
+import galleryImg7 from "../assets/images/gallery/gallery7.jpg";
+import galleryImg8 from "../assets/images/gallery/gallery8.jpg";
+import galleryImg9 from "../assets/images/gallery/gallery9.jpg";
+import galleryImg10 from "../assets/images/gallery/gallery10.jpg";
+import galleryImg11 from "../assets/images/gallery/gallery11.jpg";
+import galleryImg12 from "../assets/images/gallery/gallery12.jpg";
+
+const galleryImgs = [
+  galleryImg1,
+  galleryImg2,
+  galleryImg3,
+  galleryImg4,
+  galleryImg5,
+  galleryImg6,
+  galleryImg7,
+  galleryImg8,
+  galleryImg9,
+  galleryImg10,
+  galleryImg11,
+  galleryImg12,
+];
+
 const cld = new Cloudinary({
   cloud: {
     cloudName: import.meta.env.CLOUDINARY_CLOUD_NAME,
@@ -125,49 +153,18 @@ const fields = [
         </div>
       </div>
       <div class="flex flex-col items-center gap-2 mt-16">
-        <div class="carousel">
-          <div class="carousel-item">
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1559703248-dcaaec9fab78.webp"
-              alt="Burger"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1565098772267-60af42b81ef2.webp"
-              alt="Burger"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1572635148818-ef6fd45eb394.webp"
-              alt="Burger"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1494253109108-2e30c049369b.webp"
-              alt="Burger"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1550258987-190a2d41a8ba.webp"
-              alt="Burger"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1559181567-c3190ca9959b.webp"
-              alt="Burger"
-            />
-          </div>
-          <div class="carousel-item">
-            <img
-              src="https://img.daisyui.com/images/stock/photo-1601004890684-d8cbf643f5f2.webp"
-              alt="Burger"
-            />
-          </div>
+        <div class="carousel h-[500px] max-md:h-96">
+          {
+            galleryImgs.map((img, index) => (
+              <div class="carousel-item">
+                <Image
+                  src={img}
+                  class="object-cover w-full"
+                  alt={`carousel img ${index}`}
+                />
+              </div>
+            ))
+          }
         </div>
         <div
           class="flex items-center justify-center gap-2 max-md:hidden text-xs"
