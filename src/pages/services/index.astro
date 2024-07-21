@@ -44,7 +44,7 @@ const services = await getCollection("services");
                 "/src/assets/images/services/" + service.data.featuredImage
               ]()}
               alt={service.data.name}
-              class="object-cover"
+              class="object-cover aspect-square"
             />
             <a
               href={`/services/${service.slug}`}
