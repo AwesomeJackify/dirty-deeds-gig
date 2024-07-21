@@ -1,5 +1,5 @@
 ---
 name: Demolition
-description: When it's time for out with the old and in with the new, our demolition services come to the fore. We approach each Wairarapa project, whether a quaint cottage or a sprawling industrial complex, with meticulous planning and safe execution.
+description: Dirt'ee Deeds provides professional demolition services and solutions, handling projects of all sizes with precision and safety. we offer comprehensive demolition solutions, whether you have a backyard patio needing to be removed or a large shed needing to be demolished we can help. Our experienced team ensures safe and efficient dismantling, debris removal, and site cleanup, adhering to all safety and environmental regulations.
 featuredImage: demolition/image1.jpg
 ---
