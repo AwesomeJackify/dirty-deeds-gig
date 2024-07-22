@@ -13,6 +13,10 @@ const Nav = () => {
   useEffect(() => {
     const timeline = gsap.timeline({ paused: true });
     timeline
+      .to("#mobileNavWrapper", {
+        display: "flex",
+        duration: 0,
+      })
       .to("#mobileNavItemsWrapper", {
         paddingTop: "48px",
         height: "80dvh",
@@ -73,42 +77,44 @@ const Nav = () => {
           </a>
         </div>
       </nav>
-      <nav className="md:hidden flex w-full justify-between items-center">
-        <a href="/" className="text-xl text-primary font-extrabold ml-4">
-          {config.businessName}
-        </a>
-        <button
-          className="btn btn-primary rounded-2xl btn-sm"
-          onClick={() => setToggleMobileNav(!toggleMobileNav)}
-        >
-          {toggleMobileNav ? "X" : "Menu"}
-        </button>
-      </nav>
-      <div className="flex flex-col ml-4 h-full gap-1 relative">
-        <div
-          id="mobileNavItemsWrapper"
-          className="top-16 flex flex-col gap-2 h-0"
-        >
-          {config.pages.map((page, index) => (
-            <a
-              key={page.name}
-              href={page.url}
-              className="opacity-0 mobileNavItem text-4xl"
-              ref={(el) => (mobileNavItemsRef.current[index] = el)}
-            >
-              {page.name}
-            </a>
-          ))}
+      <nav className="md:hidden flex flex-col">
+        <div className="flex w-full justify-between items-center">
+          <a href="/" className="text-xl text-primary font-extrabold ml-4">
+            {config.businessName}
+          </a>
+          <button
+            className="btn btn-primary rounded-2xl btn-sm"
+            onClick={() => setToggleMobileNav(!toggleMobileNav)}
+          >
+            {toggleMobileNav ? "X" : "Menu"}
+          </button>
         </div>
-        <a
-          id="mobileContactBtn"
-          href="/#contact"
-          className="btn opacity-0 hidden absolute bottom-16 btn-primary w-fit"
-          ref={mobileContactBtnRef}
+        <div
+          className="flex-col ml-4 h-full gap-1 relative hidden"
+          id="mobileNavWrapper"
         >
-          Contact us today
-        </a>
-      </div>
+          <div id="mobileNavItemsWrapper" className="flex flex-col gap-2 h-0">
+            {config.pages.map((page, index) => (
+              <a
+                key={page.name}
+                href={page.url}
+                className="opacity-0 mobileNavItem text-4xl"
+                ref={(el) => (mobileNavItemsRef.current[index] = el)}
+              >
+                {page.name}
+              </a>
+            ))}
+          </div>
+          <a
+            id="mobileContactBtn"
+            href="/#contact"
+            className="btn opacity-0 hidden absolute bottom-16 btn-primary w-fit"
+            ref={mobileContactBtnRef}
+          >
+            Contact us today
+          </a>
+        </div>
+      </nav>
     </div>
   );
 };
