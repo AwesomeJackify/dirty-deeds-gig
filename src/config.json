@@ -1,5 +1,5 @@
 {
-  "businessName": "Dirt'ee Deeds",
+  "businessName": "Lyster Contracting",
   "pages": [
     {
       "name": "Home",
@@ -17,12 +17,8 @@
       "url": "tel:+642108362653"
     },
     {
-      "name": "lachie@dirteedeeds.co.nz",
-      "url": "mailto:lachie@dirteedeeds.co.nz"
-    },
-    {
-      "name": "admin@dirteedeeds.co.nz",
-      "url": "mailto:admin@dirteedeeds.co.nz"
+      "name": "admin@lyster.co.nz",
+      "url": "mailto:admin@lyster.co.nz"
     }
   ]
 }
